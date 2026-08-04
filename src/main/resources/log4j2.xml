@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
 
-    <!-- Appender, Layout 설정 -->
+    <!-- Appender 설정 -->
     <Appenders>
         <Console name="console" target="SYSTEM_OUT">
-            <PatternLayout/>
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
         </Console>
-        <File name="file" fileName="./logs/file/sample.log" append="false">
-            <PatternLayout pattern="%d %5p [%c] %m%n"/>
-        </File>
     </Appenders>
 
     <!-- Logger 설정 -->
@@ -22,6 +19,6 @@
         <Root level="INFO">
             <AppenderRef ref="console"/>
         </Root>
-</Loggers>
+    </Loggers>
 
-        </Configuration>
+</Configuration>
