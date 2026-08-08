@@ -13,4 +13,6 @@
     <context:component-scan base-package="org.zerock.ex00.controller"/>
 
     <mvc:annotation-driven/>
+    
+    <mvc:resources mapping="/resources/**" location="classpath:/static/"/>
 </beans>

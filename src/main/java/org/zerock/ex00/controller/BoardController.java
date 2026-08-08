@@ -72,4 +72,36 @@ public class BoardController {
 
         return "redirect:/board/list";
     }
+
+    @PostMapping("/remove/{bno}")
+    public String remove(
+            @PathVariable(name = "bno") Long bno,
+            RedirectAttributes rttr) {
+
+        BoardVO boardVO = new BoardVO();
+        boardVO.setBno(bno);
+        boardVO.setTitle("해당 글은 삭제 되었습니다.");
+        boardVO.setContent("해당 글은 삭제 되었습니다.");
+
+        log.info(boardVO);
+
+        boardService.modify(boardVO);
+        rttr.addFlashAttribute("result", boardVO.getBno());
+
+        return "redirect: /board/list";
+    }
+
+    @PostMapping("/modify/{bno}")
+    public String modify(
+            @PathVariable(name = "bno") Long bno,
+            BoardVO boardVO) {
+
+        boardVO.setBno(bno);
+
+        log.info(boardVO);
+
+        boardService.modify(boardVO);
+
+        return "redirect: /board/read/" + bno;
+    }
 }
